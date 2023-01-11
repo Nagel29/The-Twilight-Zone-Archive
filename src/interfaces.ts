@@ -14,7 +14,7 @@ export interface RawEpisode {
     wikipedia: string
 }
 
-export interface cleanEpisode {
+export interface CleanEpisode {
     airDate: string,
     cast: string[],
     closingNarration: string,
@@ -28,4 +28,13 @@ export interface cleanEpisode {
     title: string,
     wikipedia: string, 
     writtenBy: string
+}
+
+export interface TableEpisode {
+    id: number,
+    key: number,
+    season: string,
+    episode: string,
+    title: string,
+    airDate: string,
 }
