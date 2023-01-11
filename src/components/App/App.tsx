@@ -19,10 +19,16 @@ const [episodes, setEpisodes] = useState<cleanEpisode[]>([])
 
   return(
     <>
-      <h1>You’ve just crossed over into… <br/>The Twilight Zone</h1>
-      <AllEpisodes />
-      <WatchList />
-      <Details />
+      <header>
+        <h1>You’ve just crossed over into… <br/>The Twilight Zone Archives</h1>
+      </header>
+      <main>
+        <div className="container-left">
+          <AllEpisodes />
+          <WatchList />
+        </div>
+        <Details />
+      </main>
     </>
   )
 }

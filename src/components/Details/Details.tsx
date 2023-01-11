@@ -3,6 +3,8 @@ import './Details.css';
 export const Details = () => {
 
     return(
-        <p>Details</p>
+        <div className="container-details">
+            <p>Details</p>
+        </div>
     )
 }
