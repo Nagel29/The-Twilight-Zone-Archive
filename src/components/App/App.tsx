@@ -31,6 +31,7 @@ const [episodes, setEpisodes] = useState<CleanEpisode[]>([])
       </header>
       <main>
         <div className="container-left">
+          <h3>All Episodes</h3>
           <AllEpisodes episodes={episodes}/>
           {/* <WatchList /> */}
         </div>

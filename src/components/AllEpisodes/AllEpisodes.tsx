@@ -1,6 +1,7 @@
 import './AllEpisodes.css';
 import { CleanEpisode } from '../../interfaces';
 import { Row } from '../Row/Row';
+import { Form } from '../Form/Form';
 
 export const AllEpisodes = ({ episodes }:{ episodes: CleanEpisode[]}) => {
     const tableRows = episodes.map(episode => {
@@ -18,18 +19,21 @@ export const AllEpisodes = ({ episodes }:{ episodes: CleanEpisode[]}) => {
     })
 
     return(
-        <div className="container-all-episodes">
-            <table className="table">
-            <thead>
-                <tr>
-                    <th>Season #</th>
-                    <th>Episode #</th>
-                    <th>Title</th>
-                    <th>Original Air Date</th>
-                </tr>
-            </thead>
-            <tbody>{tableRows}</tbody>
-            </table>
-        </div>
+        <>
+            <Form />
+            <div className="container-all-episodes">
+                <table className="table">
+                    <thead>
+                        <tr>
+                            <th>Season #</th>
+                            <th>Episode #</th>
+                            <th>Title</th>
+                            <th>Original Air Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>{tableRows}</tbody>
+                </table>
+            </div>
+        </>
     )
 }
