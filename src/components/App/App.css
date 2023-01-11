@@ -5,22 +5,26 @@
 main {
   display: flex;
   justify-content: space-evenly;
-  height: 83vh;
-  margin-top: 2.5%;
+  padding-top: 2vh;
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #812b4c, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  animation: gradient 7.5s ease infinite;
+  height: 86vh;
 }
 
 header {
   background-color:rgb(63, 66, 66);
+  border-bottom: black solid 1px;
   color: antiquewhite;
   display: flex;
   flex-direction: column;
-  height: 100px;
+  height: 12vh;
   text-shadow: 4px 4px black;
 }
 
 h1 {
   font-size: 22px;
-  margin: 5px 0px 15px 0px;
+  margin: 10px 0px 15px 0px;
 }
 
 h2 {
@@ -30,6 +34,7 @@ h2 {
 
 .container-left {
   border: solid black 2px;
+  background-color:rgb(242, 242, 242);
   box-shadow: 8px 8px 8px rgb(69, 69, 69);
   width: 47.5%;
   display: flex;
@@ -38,3 +43,16 @@ h2 {
   height: 95%;
 }
 
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  
+  50% {
+    background-position: 100% 50%;
+  }
+  
+  100% {
+    background-position: 0% 50%;
+  }
+}

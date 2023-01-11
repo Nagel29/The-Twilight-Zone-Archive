@@ -11,6 +11,7 @@ import { sampleData } from '../../sampleData';
 
 const App = () => {
 const [episodes, setEpisodes] = useState<CleanEpisode[]>([])
+const [detailEpisode, setDetailEpisode] = useState<CleanEpisode>()
 
   useEffect(() => {
     fetchEpisodes()
@@ -23,6 +24,13 @@ const [episodes, setEpisodes] = useState<CleanEpisode[]>([])
     })
   },[])
 
+  const handleRowClick = (id: number) => {
+    const singleEpisode = episodes.find(episode => {
+      return episode.id === id;
+    })
+    setDetailEpisode(singleEpisode)
+  }
+
   return(
     <>
       <header>
@@ -32,10 +40,10 @@ const [episodes, setEpisodes] = useState<CleanEpisode[]>([])
       <main>
         <div className="container-left">
           <h3>All Episodes</h3>
-          <AllEpisodes episodes={episodes}/>
+          <AllEpisodes episodes={episodes} handleRowClick={handleRowClick}/>
           {/* <WatchList /> */}
         </div>
-        <Details />
+        <Details detailEpisode={detailEpisode}/>
       </main>
     </>
   )
