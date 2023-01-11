@@ -1,18 +1,17 @@
 
 table {
-    border-spacing: 5px;
     border-collapse: collapse;
     width: 100%;
 }
 
 th {
-    font-size: 20px;
+    font-size: 18px;
     text-decoration: underline;
     background-color: white;
 }
 
 thead {
-    height: 50px;
+    height: 30px;
     position: sticky;
     top: 0;
     box-shadow: 0 1px;

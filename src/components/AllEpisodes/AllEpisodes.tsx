@@ -29,6 +29,7 @@ export const AllEpisodes = ({ episodes }:{ episodes: CleanEpisode[]}) => {
                             <th>Episode #</th>
                             <th>Title</th>
                             <th>Original Air Date</th>
+                            <th>On Watch List?</th>
                         </tr>
                     </thead>
                     <tbody>{tableRows}</tbody>

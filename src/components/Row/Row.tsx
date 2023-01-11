@@ -9,6 +9,7 @@ export const Row = ( rowProps: TableEpisode) => {
             <td>{rowProps.episode}</td>
             <td>{rowProps.title}</td>
             <td>{rowProps.airDate}</td>
+            <input type="checkbox"/>
         </tr>
 
     )
