@@ -5,13 +5,13 @@ table {
 }
 
 th {
-    font-size: 18px;
+    font-size: 16px;
     text-decoration: underline;
     background-color: white;
 }
 
 thead {
-    height: 30px;
+    height: 35px;
     position: sticky;
     top: 0;
     box-shadow: 0 1px;

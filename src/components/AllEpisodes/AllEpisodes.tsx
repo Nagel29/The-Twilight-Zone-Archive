@@ -3,17 +3,13 @@ import { CleanEpisode } from '../../interfaces';
 import { Row } from '../Row/Row';
 import { Form } from '../Form/Form';
 
-export const AllEpisodes = ({ episodes }:{ episodes: CleanEpisode[]}) => {
+export const AllEpisodes = ({ episodes, handleRowClick }:{ episodes: CleanEpisode[], handleRowClick: (id: number) => void}) => {
     const tableRows = episodes.map(episode => {
         return (
             <Row
-                id={episode.id}
                 key={episode.id}
-                season={episode.season}
-                episode={episode.episode}
-                title={episode.title}
-                airDate={episode.airDate}
-                
+                rowProps={episode}
+                handleRowClick={handleRowClick}
             />
         )
     })

@@ -3,12 +3,14 @@
     width: 47.5%;
     height: 95%;
     box-shadow: 8px 8px 8px rgb(69, 69, 69);
+    overflow-y: scroll;
+    background-color:rgb(242, 242, 242);
 }
 
 .container-info {
     display: flex;
     flex-direction: column;
-    /* align-items: flex-start; */
+    margin: 3%;
 }
 
 .container-info p {
@@ -17,25 +19,58 @@
 
 .container-img-title {
     display: flex;
-    margin: 3% 0% 3% 0%;
+    justify-content: space-between;
+    margin: 3%;
 }
 
 .image {
-    width: 15%;
+    width: 25%;
+    border: solid black 1px;
+    box-shadow: 2px 2px 2px black;
 }
 
 .title {
     width: 85%;
+    font-size: 26px;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.title-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 75%;
 }
 
 .season-episode-date {
+    width: 100%;
     display: flex;
-    justify-content: space-between;
-    margin-right: 30%;
+    justify-content: space-evenly;
 }
 
 .written-cast {
+    width: 100%;
     display: flex;
     justify-content: space-between;
-    margin-right: 60%;
+}
+
+.written {
+    width: 35%;
+}
+
+.cast {
+    width: 65%;
+}
+
+.text {
+    margin-top: 1px;
+}
+
+.spoiler {
+    filter: blur(4px);
+}
+
+.spoiler:hover {
+    filter: none;
 }

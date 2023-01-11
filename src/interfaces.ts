@@ -29,12 +29,3 @@ export interface CleanEpisode {
     wikipedia: string, 
     writtenBy: string
 }
-
-export interface TableEpisode {
-    id: number,
-    key: number,
-    season: string,
-    episode: string,
-    title: string,
-    airDate: string,
-}
