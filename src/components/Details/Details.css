@@ -3,3 +3,37 @@
     width: 47.5%;
     height: 95%;
 }
+
+.container-info {
+    display: flex;
+    flex-direction: column;
+    /* align-items: flex-start; */
+}
+
+.container-info p {
+    text-align: left;
+}
+
+.container-img-title {
+    display: flex;
+}
+
+.image {
+    width: 15%;
+}
+
+.title {
+    width: 85%;
+}
+
+.season-episode-date {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 30%;
+}
+
+.written-cast {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 60%;
+}

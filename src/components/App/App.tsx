@@ -13,18 +13,21 @@ const App = () => {
 const [episodes, setEpisodes] = useState<CleanEpisode[]>([])
 
   useEffect(() => {
-    setEpisodes(cleanEpisodes(sampleData))
-    // fetchEpisodes()
-    //   .then(data => setEpisodes(cleanEpisodes(data)))
-    //   .catch((response) => {
-    //     console.log(response.status)
-    //   })
-  })
+    fetchEpisodes()
+      .then(data => {
+        console.log('hi')
+        setEpisodes(cleanEpisodes(data))
+      })
+      .catch((response) => {
+        console.log(response.status)
+    })
+  },[])
 
   return(
     <>
       <header>
-        <h1>You’ve just crossed over into… <br/>The Twilight Zone Archives</h1>
+        <h1>You’ve just crossed over into…</h1>
+        <h2>The Twilight Zone Archives</h2>
       </header>
       <main>
         <div className="container-left">

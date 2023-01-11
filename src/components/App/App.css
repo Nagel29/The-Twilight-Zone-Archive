@@ -5,8 +5,27 @@
 main {
   display: flex;
   justify-content: space-evenly;
-  height: 84.5vh;
+  height: 83vh;
   margin-top: 2.5%;
+}
+
+header {
+  background-color:rgb(63, 66, 66);
+  color: antiquewhite;
+  display: flex;
+  flex-direction: column;
+  height: 100px;
+  text-shadow: 4px 4px black;
+}
+
+h1 {
+  font-size: 22px;
+  margin: 5px 0px 15px 0px;
+}
+
+h2 {
+  font-size: 32px;
+  margin: 0px;
 }
 
 .container-left {
