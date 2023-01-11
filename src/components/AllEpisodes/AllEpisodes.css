@@ -1,0 +1,28 @@
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th {
+    font-size: 18px;
+    text-decoration: underline;
+    background-color: white;
+}
+
+thead {
+    height: 30px;
+    position: sticky;
+    top: 0;
+    box-shadow: 0 1px;
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+}
+
+
+.container-all-episodes {
+    width: 100%;
+    overflow-y: scroll;
+}
+
