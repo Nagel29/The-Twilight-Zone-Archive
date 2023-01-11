@@ -32,7 +32,7 @@ const [episodes, setEpisodes] = useState<CleanEpisode[]>([])
       <main>
         <div className="container-left">
           <AllEpisodes episodes={episodes}/>
-          <WatchList />
+          {/* <WatchList /> */}
         </div>
         <Details />
       </main>

@@ -21,7 +21,9 @@ thead {
     width: 100%;
 }
 
+
 .container-all-episodes {
     width: 100%;
+    overflow-y: scroll;
 }
 

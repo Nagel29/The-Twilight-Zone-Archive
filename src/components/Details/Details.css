@@ -1,7 +1,8 @@
 .container-details {
-    border: solid black 1px;
+    border: solid black 2px;
     width: 47.5%;
     height: 95%;
+    box-shadow: 8px 8px 8px rgb(69, 69, 69);
 }
 
 .container-info {
@@ -16,6 +17,7 @@
 
 .container-img-title {
     display: flex;
+    margin: 3% 0% 3% 0%;
 }
 
 .image {
