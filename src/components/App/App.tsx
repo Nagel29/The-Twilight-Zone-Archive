@@ -4,17 +4,26 @@ import './App.css';
 import { fetchEpisodes } from '../../apiCalls';
 import { cleanEpisodes } from '../../utilities/utilities';
 import { cleanEpisode } from '../../interfaces';
+import { AllEpisodes } from '../AllEpisodes/AllEpisodes';
+import { WatchList } from '../WatchList/WatchList';
+import { Details } from '../Details/Details';
+
 
 const App = () => {
-const [allEpisodes, setAllEpisodes] = useState<cleanEpisode[]>([])
+const [episodes, setEpisodes] = useState<cleanEpisode[]>([])
 
   useEffect(() => {
     fetchEpisodes()
-      .then(data => setAllEpisodes(cleanEpisodes(data)))
+      .then(data => setEpisodes(cleanEpisodes(data)))
   })
 
   return(
-    <h1>The Twilight Zone</h1>
+    <>
+      <h1>You’ve just crossed over into… <br/>The Twilight Zone</h1>
+      <AllEpisodes />
+      <WatchList />
+      <Details />
+    </>
   )
 }
 
