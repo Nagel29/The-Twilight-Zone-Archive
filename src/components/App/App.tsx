@@ -27,14 +27,14 @@ const [filteredEpisodes, setFilteredEpisodes] = useState<CleanEpisode[]>([])
   },[])
 
   const handleRowClick = (id: number) => {
-    const singleEpisode = episodes.find(episode => {
+    const singleEpisode = filteredEpisodes.find(episode => {
       return episode.id === id;
     })
     setDetailEpisode(singleEpisode)
   }
 
   const handleWatchList = (id: number) => {
-    const updatedEpisodes = episodes.map(episode => {
+    const updatedEpisodes = filteredEpisodes.map(episode => {
       if (episode.id === id) {
         return {
           ...episode,
@@ -48,11 +48,11 @@ const [filteredEpisodes, setFilteredEpisodes] = useState<CleanEpisode[]>([])
   }
 
   const handleDetailsWatch = (id: number) => {
-    setDetailEpisode(episodes.find(episode => episode.id === id))
+    setDetailEpisode(filteredEpisodes.find(episode => episode.id === id))
   }
 
   const sortBySeasonOrEpisode = (sortBy: string, sortOrder: string) => {
-    return episodes.sort((a, b) => {
+    return filteredEpisodes.sort((a, b) => {
         if (sortOrder === 'ascending') {
           return parseInt(a[sortBy]) - parseInt(b[sortBy])
         } else {
@@ -62,7 +62,7 @@ const [filteredEpisodes, setFilteredEpisodes] = useState<CleanEpisode[]>([])
   }
 
   const sortByTitle = (sortOrder: string) => {
-    return episodes.sort((a, b) => {
+    return filteredEpisodes.sort((a, b) => {
     if (sortOrder === 'ascending') {
       return a.title > b.title ? 1 : -1
     } else {
@@ -72,7 +72,7 @@ const [filteredEpisodes, setFilteredEpisodes] = useState<CleanEpisode[]>([])
   }
 
   const sortByWatch = (sortOrder: string) => {
-    return episodes.sort((a, b) => {
+    return filteredEpisodes.sort((a, b) => {
     if (sortOrder === 'ascending') {
       return a.watchList > b.watchList ? -1 : 1
     } else {
@@ -82,7 +82,7 @@ const [filteredEpisodes, setFilteredEpisodes] = useState<CleanEpisode[]>([])
   }
 
   const sortByDate = (sortOrder: string) => {
-    return episodes.sort((a, b) => {
+    return filteredEpisodes.sort((a, b) => {
       if (sortOrder === 'ascending') {
         let aDate = new Date(a.airDate.replace('-', '/').replace('-', '/'))
         let bDate = new Date(b.airDate.replace('-', '/').replace('-', '/'))
@@ -106,7 +106,7 @@ const [filteredEpisodes, setFilteredEpisodes] = useState<CleanEpisode[]>([])
       } else {
         newSort = sortByDate(sortOrder)
       }
-      setEpisodes([...newSort])
+      setFilteredEpisodes([...newSort])
     }
 
   const handleSearch = (search: string) => {
