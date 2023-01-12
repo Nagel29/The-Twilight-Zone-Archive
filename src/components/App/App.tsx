@@ -44,7 +44,7 @@ const [filteredEpisodes, setFilteredEpisodes] = useState<CleanEpisode[]>([])
       return episode
     })
 
-    setEpisodes([...updatedEpisodes])
+    setFilteredEpisodes([...updatedEpisodes])
   }
 
   const handleDetailsWatch = (id: number) => {
