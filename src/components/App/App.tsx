@@ -8,12 +8,15 @@ import { AllEpisodes } from '../AllEpisodes/AllEpisodes';
 import { WatchList } from '../WatchList/WatchList';
 import { Details } from '../Details/Details';
 import { sampleData } from '../../sampleData';
+import { Routes, Route, NavLink, Link } from 'react-router-dom';
+
 
 const App = () => {
 const [episodes, setEpisodes] = useState<CleanEpisode[]>([])
 const [detailEpisode, setDetailEpisode] = useState<CleanEpisode>()
 const [searchInput, setSearchInput] = useState<string>('')
 const [filteredEpisodes, setFilteredEpisodes] = useState<CleanEpisode[]>([])
+const [clicked, setClicked] = useState<string>('All Episodes')
 
   useEffect(() => {
     fetchEpisodes()
@@ -138,18 +141,30 @@ const [filteredEpisodes, setFilteredEpisodes] = useState<CleanEpisode[]>([])
       <header>
         <h1>You’ve just crossed over into…</h1>
         <h2>The Twilight Zone Archives</h2>
+        <nav className="container-button">
+          <NavLink to="/"><button className="button-nav" onClick={() => setClicked('All Episodes')}>All Episodes</button></NavLink>
+          <NavLink to="/watch-list"><button className="button-nav" onClick={() => setClicked('My Watch List')}>My Watch List</button></NavLink>
+        </nav>
       </header>
       <main>
         <div className="container-left">
-          <h3>All Episodes</h3>
-          <AllEpisodes 
-            filteredEpisodes={filteredEpisodes} 
-            handleRowClick={handleRowClick} 
-            handleSort={handleSort}
-            handleWatchList={handleWatchList}  
-            handleSearch={handleSearch}
-          />
-          {/* <WatchList /> */}
+          <h3>{clicked}</h3>
+          <Routes>
+            <Route path="/" element={
+              <AllEpisodes 
+                filteredEpisodes={filteredEpisodes} 
+                handleRowClick={handleRowClick} 
+                handleSort={handleSort}
+                handleWatchList={handleWatchList}  
+                handleSearch={handleSearch}
+              />}/>
+            <Route path="watch-list" element={
+              <WatchList 
+                filteredEpisodes={filteredEpisodes}
+                handleWatchList={handleWatchList}
+                handleRowClick={handleRowClick}
+              />}/>
+          </Routes>
         </div>
         <Details 
           detailEpisode={detailEpisode} 

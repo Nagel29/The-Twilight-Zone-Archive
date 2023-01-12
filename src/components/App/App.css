@@ -9,7 +9,8 @@ main {
   background: linear-gradient(-45deg, #ee7752, #e73c7e, #812b4c, #23a6d5, #23d5ab);
   background-size: 400% 400%;
   animation: gradient 7.5s ease infinite;
-  height: 86vh;
+  height: 85.2vh;
+  padding-top: 1.5%;
 }
 
 header {
@@ -32,6 +33,11 @@ h2 {
   margin: 0px;
 }
 
+h3 {
+  font-size: 22px;
+  text-decoration: underline;
+}
+
 .container-left {
   border: solid black 2px;
   background-color:rgb(242, 242, 242);
@@ -41,6 +47,21 @@ h2 {
   flex-direction: column;
   align-items: center;
   height: 95%;
+}
+
+.container-button {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 1.5%;
+  width: 10%;
+}
+
+.button-nav {
+  width: fit-content;
+}
+
+.button-nav:hover {
+  cursor: pointer;
 }
 
 @keyframes gradient {
@@ -55,4 +76,11 @@ h2 {
   100% {
     background-position: 0% 50%;
   }
+}
+
+@media only screen and (max-width: 1440px) {
+    header { height: 12.5vh }
+    h1 { font-size: 16px; }
+    h2 { font-size: 22px; }
+    .container-button { width: 13.5%; }
 }
