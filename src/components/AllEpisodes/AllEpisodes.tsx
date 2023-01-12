@@ -4,18 +4,20 @@ import { Row } from '../Row/Row';
 import { Form } from '../Form/Form';
 
 export const AllEpisodes = ({
-    episodes, 
+    filteredEpisodes, 
     handleRowClick, 
     handleSort, 
-    handleWatchList
+    handleWatchList,
+    handleSearch
     }:{ 
-    episodes: CleanEpisode[],
+    filteredEpisodes: CleanEpisode[],
     handleRowClick: (id: number) => void,
     handleSort: (sortBy: string, sortOrder: string) => void,
-    handleWatchList: (id: number) => void
+    handleWatchList: (id: number) => void,
+    handleSearch: (search: string) => void
     }) => {
     
-    const tableRows = episodes.map(episode => {
+    const tableRows = filteredEpisodes.map(episode => {
         return (
             <Row
                 key={episode.id}
@@ -28,7 +30,7 @@ export const AllEpisodes = ({
 
     return(
         <>
-            <Form handleSort={handleSort}/>
+            <Form handleSort={handleSort} handleSearch={handleSearch}/>
             <div className="container-all-episodes">
                 <table className="table">
                     <thead>

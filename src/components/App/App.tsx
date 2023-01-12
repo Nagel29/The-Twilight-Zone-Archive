@@ -12,11 +12,14 @@ import { sampleData } from '../../sampleData';
 const App = () => {
 const [episodes, setEpisodes] = useState<CleanEpisode[]>([])
 const [detailEpisode, setDetailEpisode] = useState<CleanEpisode>()
+const [searchInput, setSearchInput] = useState<string>('')
+const [filteredEpisodes, setFilteredEpisodes] = useState<CleanEpisode[]>([])
 
   useEffect(() => {
     fetchEpisodes()
       .then(data => {
         setEpisodes(cleanEpisodes(data))
+        setFilteredEpisodes(cleanEpisodes(data))
       })
       .catch((response) => {
         console.log(response.status)
@@ -105,7 +108,16 @@ const [detailEpisode, setDetailEpisode] = useState<CleanEpisode>()
       }
       setEpisodes([...newSort])
     }
+
+  const handleSearch = (search: string) => {
+    setSearchInput(search)
+  }
     
+  useEffect(() => {
+    setFilteredEpisodes(episodes.filter(episode => {
+      return episode.title.toLowerCase().includes(searchInput.toLowerCase())
+    }))
+  },[searchInput])
 
   return(
     <>
@@ -117,16 +129,17 @@ const [detailEpisode, setDetailEpisode] = useState<CleanEpisode>()
         <div className="container-left">
           <h3>All Episodes</h3>
           <AllEpisodes 
-            episodes={episodes} 
+            filteredEpisodes={filteredEpisodes} 
             handleRowClick={handleRowClick} 
             handleSort={handleSort}
             handleWatchList={handleWatchList}  
+            handleSearch={handleSearch}
           />
           {/* <WatchList /> */}
         </div>
         <Details 
           detailEpisode={detailEpisode} 
-          episodes={episodes}
+          filteredEpisodes={filteredEpisodes}
           handleDetailsWatch={handleDetailsWatch}  
         />
       </main>
