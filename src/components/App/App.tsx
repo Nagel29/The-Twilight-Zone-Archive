@@ -8,6 +8,8 @@ import { AllEpisodes } from '../AllEpisodes/AllEpisodes';
 import { WatchList } from '../WatchList/WatchList';
 import { Details } from '../Details/Details';
 import { sampleData } from '../../sampleData';
+import { Routes, Route, NavLink, Link } from 'react-router-dom';
+
 
 const App = () => {
 const [episodes, setEpisodes] = useState<CleanEpisode[]>([])
@@ -138,18 +140,25 @@ const [filteredEpisodes, setFilteredEpisodes] = useState<CleanEpisode[]>([])
       <header>
         <h1>You’ve just crossed over into…</h1>
         <h2>The Twilight Zone Archives</h2>
+        <nav className="container-button">
+          <NavLink to="/"><button className="button-nav">All Episodes</button></NavLink>
+          <NavLink to="/watch-list"><button className="button-nav">My Watch List</button></NavLink>
+        </nav>
       </header>
       <main>
         <div className="container-left">
           <h3>All Episodes</h3>
-          <AllEpisodes 
-            filteredEpisodes={filteredEpisodes} 
-            handleRowClick={handleRowClick} 
-            handleSort={handleSort}
-            handleWatchList={handleWatchList}  
-            handleSearch={handleSearch}
-          />
-          {/* <WatchList /> */}
+          <Routes>
+            <Route path="/" element={
+              <AllEpisodes 
+                filteredEpisodes={filteredEpisodes} 
+                handleRowClick={handleRowClick} 
+                handleSort={handleSort}
+                handleWatchList={handleWatchList}  
+                handleSearch={handleSearch}
+              />}/>
+            <Route path="watch-list" element={<WatchList />}/>
+          </Routes>
         </div>
         <Details 
           detailEpisode={detailEpisode} 
