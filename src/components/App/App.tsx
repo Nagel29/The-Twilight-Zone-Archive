@@ -33,7 +33,7 @@ const [filteredEpisodes, setFilteredEpisodes] = useState<CleanEpisode[]>([])
     setDetailEpisode(singleEpisode)
   }
 
-  const handleWatchList = (id: number) => {
+  const handleWatchList = (id: number | undefined) => {
     const updatedEpisodes = filteredEpisodes.map(episode => {
       if (episode.id === id) {
         return {
@@ -156,6 +156,7 @@ const [filteredEpisodes, setFilteredEpisodes] = useState<CleanEpisode[]>([])
           filteredEpisodes={filteredEpisodes}
           handleDetailsWatch={handleDetailsWatch}  
           handleReflectionChange={handleReflectionChange}
+          handleWatchList={handleWatchList}
         />
       </main>
     </>
