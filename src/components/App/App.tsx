@@ -33,7 +33,7 @@ const [filteredEpisodes, setFilteredEpisodes] = useState<CleanEpisode[]>([])
     setDetailEpisode(singleEpisode)
   }
 
-  const handleWatchList = (id: number) => {
+  const handleWatchList = (id: number | undefined) => {
     const updatedEpisodes = filteredEpisodes.map(episode => {
       if (episode.id === id) {
         return {
@@ -119,6 +119,20 @@ const [filteredEpisodes, setFilteredEpisodes] = useState<CleanEpisode[]>([])
     }))
   },[searchInput])
 
+  const handleReflectionChange = (event: any, id: number | undefined) => {
+    const updatedEpisodes = filteredEpisodes.map(episode => {
+      if (episode.id === id) {
+        return {
+          ...episode,
+          reflection: event.target.value,
+        }
+      }
+      return episode
+    })
+
+    setFilteredEpisodes([...updatedEpisodes])
+  }
+
   return(
     <>
       <header>
@@ -141,6 +155,8 @@ const [filteredEpisodes, setFilteredEpisodes] = useState<CleanEpisode[]>([])
           detailEpisode={detailEpisode} 
           filteredEpisodes={filteredEpisodes}
           handleDetailsWatch={handleDetailsWatch}  
+          handleReflectionChange={handleReflectionChange}
+          handleWatchList={handleWatchList}
         />
       </main>
     </>

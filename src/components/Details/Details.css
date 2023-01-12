@@ -7,6 +7,22 @@
     background-color:rgb(242, 242, 242);
 }
 
+.container-watch {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin: 1% 2% 0% 0%;
+}
+
+.checkbox {
+    width: 20px;
+    height: 20px;
+}
+
+.checkbox:hover {
+    cursor: pointer
+}
+
 .container-info {
     display: flex;
     flex-direction: column;
@@ -20,7 +36,7 @@
 .container-img-title {
     display: flex;
     justify-content: space-between;
-    margin: 3%;
+    margin: 0% 3% 3% 3%;
 }
 
 .image {
@@ -73,4 +89,13 @@
 
 .spoiler:hover {
     filter: none;
+}
+
+textarea {
+    max-width: 98%;
+    min-width: 98%;
+}
+
+.container-reflection {
+    margin-top: 3%;
 }

@@ -24,6 +24,7 @@ export interface CleanEpisode {
     id: number,
     img: string,
     openingNarration: string,
+    reflection: string,
     season: string,
     storyline: string,
     title: string,
