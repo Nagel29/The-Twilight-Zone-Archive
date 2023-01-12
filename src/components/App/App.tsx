@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import logo from '../../logo.svg';
 import './App.css';
 import { fetchEpisodes } from '../../apiCalls';
@@ -16,7 +16,6 @@ const [detailEpisode, setDetailEpisode] = useState<CleanEpisode>()
   useEffect(() => {
     fetchEpisodes()
       .then(data => {
-        console.log('hi')
         setEpisodes(cleanEpisodes(data))
       })
       .catch((response) => {
@@ -31,6 +30,18 @@ const [detailEpisode, setDetailEpisode] = useState<CleanEpisode>()
     setDetailEpisode(singleEpisode)
   }
 
+  const handleSort = (sortBy: string, sortOrder: string) => {
+    const newSort = episodes.sort((a, b) => {
+      if (sortOrder === 'ascending') {
+        return a[sortBy] > b[sortBy] ? 1 : -1
+      } else {
+        return a[sortBy] > b[sortBy] ? -1 : 1
+      }
+
+    })
+    setEpisodes([...newSort])
+  }
+
   return(
     <>
       <header>
@@ -40,7 +51,7 @@ const [detailEpisode, setDetailEpisode] = useState<CleanEpisode>()
       <main>
         <div className="container-left">
           <h3>All Episodes</h3>
-          <AllEpisodes episodes={episodes} handleRowClick={handleRowClick}/>
+          <AllEpisodes episodes={episodes} handleRowClick={handleRowClick} handleSort={handleSort}/>
           {/* <WatchList /> */}
         </div>
         <Details detailEpisode={detailEpisode}/>

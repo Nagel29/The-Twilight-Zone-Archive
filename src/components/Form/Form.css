@@ -1,5 +1,46 @@
 .container-form {
-    height: 50%;
+    height: 25%;
     width: 100%;
     border-bottom: .5px solid black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.search {
+    height: 35px;
+    margin-left: 3px;
+}
+
+.sort-container {
+    width: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin: 3px;
+}
+
+.dropdown {
+    height: 35px; 
+    width: 150px;
+}
+
+.dropdown:hover {
+    cursor: pointer;
+}
+
+.button {
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button:hover {
+    cursor: pointer;
+}
+
+.arrow { 
+    width: 150%;
 }
