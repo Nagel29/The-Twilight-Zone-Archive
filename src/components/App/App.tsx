@@ -30,17 +30,82 @@ const [detailEpisode, setDetailEpisode] = useState<CleanEpisode>()
     setDetailEpisode(singleEpisode)
   }
 
-  const handleSort = (sortBy: string, sortOrder: string) => {
-    const newSort = episodes.sort((a, b) => {
-      if (sortOrder === 'ascending') {
-        return a[sortBy] > b[sortBy] ? 1 : -1
-      } else {
-        return a[sortBy] > b[sortBy] ? -1 : 1
+  const handleWatchList = (id: number) => {
+    const updatedEpisodes = episodes.map(episode => {
+      if (episode.id === id) {
+        return {
+          ...episode,
+          watchList: !episode.watchList,
+        }
       }
-
+      return episode
     })
-    setEpisodes([...newSort])
+
+    setEpisodes([...updatedEpisodes])
   }
+
+  const handleDetailsWatch = (id: number) => {
+    setDetailEpisode(episodes.find(episode => episode.id === id))
+  }
+
+  const sortBySeasonOrEpisode = (sortBy: string, sortOrder: string) => {
+    return episodes.sort((a, b) => {
+        if (sortOrder === 'ascending') {
+          return parseInt(a[sortBy]) - parseInt(b[sortBy])
+        } else {
+          return parseInt(b[sortBy]) - parseInt(a[sortBy])
+        }
+    })
+  }
+
+  const sortByTitle = (sortOrder: string) => {
+    return episodes.sort((a, b) => {
+    if (sortOrder === 'ascending') {
+      return a.title > b.title ? 1 : -1
+    } else {
+      return a.title > b.title ? -1 : 1
+      }
+    })
+  }
+
+  const sortByWatch = (sortOrder: string) => {
+    return episodes.sort((a, b) => {
+    if (sortOrder === 'ascending') {
+      return a.watchList > b.watchList ? -1 : 1
+    } else {
+      return a.watchList > b.watchList ? 1 : -1
+      }
+    })
+  }
+
+  const sortByDate = (sortOrder: string) => {
+    return episodes.sort((a, b) => {
+      if (sortOrder === 'ascending') {
+        let aDate = new Date(a.airDate.replace('-', '/').replace('-', '/'))
+        let bDate = new Date(b.airDate.replace('-', '/').replace('-', '/'))
+        return aDate > bDate ? 1 : -1
+      } else {
+        let aDate = new Date(a.airDate.replace('-', '/').replace('-', '/'))
+        let bDate = new Date(b.airDate.replace('-', '/').replace('-', '/'))
+        return aDate > bDate ? -1 : 1
+      }
+    })
+  }
+
+  const handleSort = (sortBy: string, sortOrder: string) => {
+    let newSort; 
+    if (sortBy === 'season' || sortBy === 'episode') {
+        newSort = sortBySeasonOrEpisode(sortBy, sortOrder)
+      } else if (sortBy === 'title') {
+        newSort = sortByTitle(sortOrder)
+      } else if (sortBy === 'watchList') {
+        newSort = sortByWatch(sortOrder)
+      } else {
+        newSort = sortByDate(sortOrder)
+      }
+      setEpisodes([...newSort])
+    }
+    
 
   return(
     <>
@@ -51,10 +116,19 @@ const [detailEpisode, setDetailEpisode] = useState<CleanEpisode>()
       <main>
         <div className="container-left">
           <h3>All Episodes</h3>
-          <AllEpisodes episodes={episodes} handleRowClick={handleRowClick} handleSort={handleSort}/>
+          <AllEpisodes 
+            episodes={episodes} 
+            handleRowClick={handleRowClick} 
+            handleSort={handleSort}
+            handleWatchList={handleWatchList}  
+          />
           {/* <WatchList /> */}
         </div>
-        <Details detailEpisode={detailEpisode}/>
+        <Details 
+          detailEpisode={detailEpisode} 
+          episodes={episodes}
+          handleDetailsWatch={handleDetailsWatch}  
+        />
       </main>
     </>
   )

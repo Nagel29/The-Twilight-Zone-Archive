@@ -1,9 +1,22 @@
 import './Details.css';
 import { CleanEpisode } from '../../interfaces';
+import { useEffect } from 'react';
 
 
-export const Details = ({ detailEpisode }:{ detailEpisode: CleanEpisode | undefined}) => {
+export const Details = ({
+    detailEpisode,
+    episodes,
+    handleDetailsWatch
+    }:{ 
+    detailEpisode: CleanEpisode | undefined,
+    episodes: CleanEpisode[],
+    handleDetailsWatch: (id: number) => void
+    }) => {
     const cast = detailEpisode?.cast.join(', ')
+
+    useEffect(() => {
+        detailEpisode && handleDetailsWatch(detailEpisode.id)
+    },[episodes])
 
     return(
         <div className="container-details">
@@ -14,7 +27,7 @@ export const Details = ({ detailEpisode }:{ detailEpisode: CleanEpisode | undefi
                     <div className="season-episode-date">
                         <p><strong>Season:</strong> {detailEpisode?.season}</p>
                         <p><strong>Episode:</strong> {detailEpisode?.episode}</p>
-                        <p><strong>Original Air Date:</strong> {detailEpisode?.airDate}</p>
+                        {/* <p><strong>Original Air Date:</strong> {detailEpisode?.airDate}</p> */}
                     </div>
                 </div>
             </div>

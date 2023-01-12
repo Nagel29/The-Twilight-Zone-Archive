@@ -3,7 +3,17 @@ import { CleanEpisode } from '../../interfaces';
 import { Row } from '../Row/Row';
 import { Form } from '../Form/Form';
 
-export const AllEpisodes = ({ episodes, handleRowClick, handleSort }:{ episodes: CleanEpisode[], handleRowClick: (id: number) => void, handleSort: (sortBy: string, sortOrder: string) => void }) => {
+export const AllEpisodes = ({
+    episodes, 
+    handleRowClick, 
+    handleSort, 
+    handleWatchList
+    }:{ 
+    episodes: CleanEpisode[],
+    handleRowClick: (id: number) => void,
+    handleSort: (sortBy: string, sortOrder: string) => void,
+    handleWatchList: (id: number) => void
+    }) => {
     
     const tableRows = episodes.map(episode => {
         return (
@@ -11,6 +21,7 @@ export const AllEpisodes = ({ episodes, handleRowClick, handleSort }:{ episodes:
                 key={episode.id}
                 rowProps={episode}
                 handleRowClick={handleRowClick}
+                handleWatchList={handleWatchList}
             />
         )
     })

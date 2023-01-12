@@ -7,7 +7,7 @@ export const Form = ({ handleSort }:{ handleSort: (sortBy: string, sortOrder: st
 
     const [search, setSearch] = useState<string>('')
     const [sortBy, setSortBy] = useState<string>('sort by')
-    const [sortOrder, setSortOrder] = useState<string>('descending')
+    const [sortOrder, setSortOrder] = useState<string>('ascending')
 
     const handleSortChange = (event: any) => {
         setSortBy(event.target.value)
@@ -28,7 +28,7 @@ export const Form = ({ handleSort }:{ handleSort: (sortBy: string, sortOrder: st
                 <select className="dropdown" placeholder="sort by..." value={sortBy} onChange={handleSortChange}>
                     <option value="sort by" disabled hidden>sort by...</option>
                     <option value="episode">episode</option>
-                    <option value="on watch list">on watch list</option>
+                    <option value="watchList">on watch list</option>
                     <option value="airDate">original air date</option>
                     <option value="season">season</option>
                     <option value="title">title</option>

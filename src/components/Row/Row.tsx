@@ -1,7 +1,15 @@
 import './Row.css';
 import { CleanEpisode } from '../../interfaces';
 
-export const Row = ( { rowProps, handleRowClick }:{ rowProps: CleanEpisode, handleRowClick: (id: number) => void }) => {
+export const Row = ({
+    rowProps,
+    handleRowClick,
+    handleWatchList 
+    }:{
+    rowProps: CleanEpisode, 
+    handleRowClick: (id: number) => void,
+    handleWatchList: (id: number) => void
+    }) => {
 
     return (
         <tr className="row" onClick={() => handleRowClick(rowProps.id)}>
@@ -9,7 +17,7 @@ export const Row = ( { rowProps, handleRowClick }:{ rowProps: CleanEpisode, hand
             <td>{rowProps.episode}</td>
             <td>{rowProps.title}</td>
             <td>{rowProps.airDate}</td>
-            <input type="checkbox"/>
+            <input type="checkbox" onClick={() => handleWatchList(rowProps.id)}/>
         </tr>
 
     )

@@ -15,7 +15,7 @@ export interface RawEpisode {
 }
 
 export interface CleanEpisode {
-    [key: string]: number | string | string[];
+    [key: string]: any;
     airDate: string,
     cast: string[],
     closingNarration: string,
@@ -28,5 +28,6 @@ export interface CleanEpisode {
     storyline: string,
     title: string,
     wikipedia: string, 
-    writtenBy: string
+    writtenBy: string,
+    watchList: boolean
 }
