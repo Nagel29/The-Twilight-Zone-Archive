@@ -74,3 +74,12 @@
 .spoiler:hover {
     filter: none;
 }
+
+textarea {
+    max-width: 98%;
+    min-width: 98%;
+}
+
+.container-reflection {
+    margin-top: 3%;
+}

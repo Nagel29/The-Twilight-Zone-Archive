@@ -11,6 +11,7 @@ export const cleanEpisodes = (data: RawEpisode[]) => {
             id: episode.id,
             img: episode.img,
             openingNarration: episode['opening_narration'],
+            reflection: '',
             season: episode.season,
             storyline: episode.storyline,
             title: episode.title,

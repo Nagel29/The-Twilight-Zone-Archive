@@ -2,15 +2,16 @@ import './Details.css';
 import { CleanEpisode } from '../../interfaces';
 import { useEffect } from 'react';
 
-
 export const Details = ({
     detailEpisode,
     filteredEpisodes,
-    handleDetailsWatch
+    handleDetailsWatch,
+    handleReflectionChange
     }:{ 
     detailEpisode: CleanEpisode | undefined,
     filteredEpisodes: CleanEpisode[],
-    handleDetailsWatch: (id: number) => void
+    handleDetailsWatch: (id: number) => void,
+    handleReflectionChange: (event: any, id: number | undefined) => void
     }) => {
     const cast = detailEpisode?.cast.join(', ')
 
@@ -40,7 +41,10 @@ export const Details = ({
                 <p><strong>Opening Narration:</strong> <p className="text">{detailEpisode?.openingNarration}</p></p>
                 <p><strong>Closing Narration:</strong> <p className="text spoiler">{detailEpisode?.closingNarration}</p></p>
                 <p><strong>Wikipedia Link:</strong> <a href={detailEpisode?.wikipedia}>{detailEpisode?.wikipedia}</a></p>
-                <p>REFLECTION COMPONENT WILL GO HERE</p>
+                <div className="container-reflection">
+                    <p><strong>Add/Edit Your Own Reflection:</strong></p>
+                    <textarea rows={15} value={detailEpisode?.reflection} onChange={(event) => handleReflectionChange(event, detailEpisode?.id)}></textarea>
+                </div>
             </div>
         </div>
     )
