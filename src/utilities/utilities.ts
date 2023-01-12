@@ -15,7 +15,8 @@ export const cleanEpisodes = (data: RawEpisode[]) => {
             storyline: episode.storyline,
             title: episode.title,
             wikipedia: episode.wikipedia,
-            writtenBy: episode['written_by']
+            writtenBy: episode['written_by'],
+            watchList: false
         }
     })
 

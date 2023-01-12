@@ -1,9 +1,22 @@
 import './Details.css';
 import { CleanEpisode } from '../../interfaces';
+import { useEffect } from 'react';
 
 
-export const Details = ({ detailEpisode }:{ detailEpisode: CleanEpisode | undefined}) => {
+export const Details = ({
+    detailEpisode,
+    filteredEpisodes,
+    handleDetailsWatch
+    }:{ 
+    detailEpisode: CleanEpisode | undefined,
+    filteredEpisodes: CleanEpisode[],
+    handleDetailsWatch: (id: number) => void
+    }) => {
     const cast = detailEpisode?.cast.join(', ')
+
+    useEffect(() => {
+        detailEpisode && handleDetailsWatch(detailEpisode.id)
+    },[filteredEpisodes])
 
     return(
         <div className="container-details">
