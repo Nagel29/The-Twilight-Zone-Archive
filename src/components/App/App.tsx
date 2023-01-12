@@ -161,6 +161,8 @@ const [clicked, setClicked] = useState<string>('All Episodes')
             <Route path="watch-list" element={
               <WatchList 
                 filteredEpisodes={filteredEpisodes}
+                handleWatchList={handleWatchList}
+                handleRowClick={handleRowClick}
               />}/>
           </Routes>
         </div>

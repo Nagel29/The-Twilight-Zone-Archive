@@ -43,10 +43,10 @@ export const Details = ({
                     <p className="written"><strong>Written By:</strong> {detailEpisode?.writtenBy}</p>
                     <p className="cast"><strong>Cast:</strong> {cast}</p>
                 </div>
-                <p><strong>Storyline:</strong> <p className="text">{detailEpisode?.storyline}</p></p>
-                <p><strong>Opening Narration:</strong> <p className="text">{detailEpisode?.openingNarration}</p></p>
-                <p><strong>Closing Narration:</strong> <p className="text spoiler">{detailEpisode?.closingNarration}</p></p>
-                <p><strong>Wikipedia Link:</strong> <a target="_blank" href={detailEpisode?.wikipedia}>{detailEpisode?.wikipedia}</a></p>
+                <div><strong>Storyline:</strong> <p className="text">{detailEpisode?.storyline}</p></div>
+                <div><strong>Opening Narration:</strong> <p className="text">{detailEpisode?.openingNarration}</p></div>
+                <div><strong>Closing Narration:</strong> <p className="text spoiler">{detailEpisode?.closingNarration}</p></div>
+                <div><strong>Wikipedia Link:</strong> <a target="_blank" href={detailEpisode?.wikipedia}>{detailEpisode?.wikipedia}</a></div>
                 <div className="container-reflection">
                     <p><strong>Add/Edit Your Own Reflection:</strong></p>
                     <textarea rows={15} value={detailEpisode?.reflection} onChange={(event) => handleReflectionChange(event, detailEpisode?.id)}></textarea>

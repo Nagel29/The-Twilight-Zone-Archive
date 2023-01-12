@@ -4,12 +4,25 @@ import { WatchCard } from '../WatchCard/WatchCard';
 import { Console } from 'console';
 import { watch } from 'fs';
 
-export const WatchList = ({ filteredEpisodes }:{ filteredEpisodes: CleanEpisode[]}) => {
+export const WatchList = ({
+    filteredEpisodes, 
+    handleWatchList,
+    handleRowClick
+    }:{ 
+    filteredEpisodes: CleanEpisode[], 
+    handleWatchList: (id: number) => void,
+    handleRowClick: (id: number) => void
+}) => {
 
     const watchList = filteredEpisodes.filter(episode => episode.watchList)
     const watchCards = watchList.map(episode => {
         return (
-            <WatchCard cardProps={episode}/>
+            <WatchCard 
+                cardProps={episode} 
+                handleWatchList={handleWatchList}
+                handleRowClick={handleRowClick}
+                key={episode.id}
+                />
         )
     })
     return(

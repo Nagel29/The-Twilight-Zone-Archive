@@ -33,6 +33,11 @@ h2 {
   margin: 0px;
 }
 
+h3 {
+  font-size: 22px;
+  text-decoration: underline;
+}
+
 .container-left {
   border: solid black 2px;
   background-color:rgb(242, 242, 242);
