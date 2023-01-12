@@ -9,7 +9,7 @@ main {
   background: linear-gradient(-45deg, #ee7752, #e73c7e, #812b4c, #23a6d5, #23d5ab);
   background-size: 400% 400%;
   animation: gradient 7.5s ease infinite;
-  height: 85.2vh;
+  height: 85vh;
   padding-top: 1.5%;
 }
 
@@ -19,7 +19,8 @@ header {
   color: antiquewhite;
   display: flex;
   flex-direction: column;
-  height: 12vh;
+  height: fit-content;
+  padding-bottom: 1.2%;
   text-shadow: 4px 4px black;
 }
 
@@ -54,10 +55,15 @@ h3 {
   justify-content: space-between;
   margin-left: 1.5%;
   width: 10%;
+  position: absolute;
+  top: 8%;
+  width: fit-content;
+  padding: 2px;
 }
 
 .button-nav {
   width: fit-content;
+  margin: 2px;
 }
 
 .button-nav:hover {
@@ -82,5 +88,10 @@ h3 {
     header { height: 12.5vh }
     h1 { font-size: 16px; }
     h2 { font-size: 22px; }
-    .container-button { width: 13.5%; }
+}
+
+@media only screen and (max-height: 800px) {
+  header { height: 12.5vh }
+  h1 { font-size: 16px; }
+  h2 { font-size: 22px; }
 }
