@@ -70,6 +70,10 @@ h3 {
   cursor: pointer;
 }
 
+.clicked {
+  background-color: rgb(167, 167, 167);
+}
+
 @keyframes gradient {
   0% {
     background-position: 0% 50%;
