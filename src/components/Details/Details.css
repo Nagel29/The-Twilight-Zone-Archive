@@ -1,3 +1,25 @@
+.message-details {
+    border: solid black 2px;
+    width: 47.5%;
+    height: 95%;
+    box-shadow: 8px 8px 8px rgb(69, 69, 69);
+    background-color:rgb(242, 242, 242);
+}
+
+.message-no-episode {
+    text-align: center;
+    font-size: 24px;
+    font-weight: 500;
+    margin-top: 15%;
+}
+
+.img-no-episode {
+    width: 40%;
+    border-radius: 20%;
+    margin-top: 5%;
+    box-shadow: 8px 8px 8px rgb(69, 69, 69);
+}
+
 .container-details {
     border: solid black 2px;
     width: 47.5%;
