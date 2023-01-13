@@ -2,21 +2,91 @@ import './AllEpisodes.css';
 import { CleanEpisode } from '../../interfaces';
 import { Row } from '../Row/Row';
 import { Form } from '../Form/Form';
+import { useEffect, useState } from 'react';
 
 export const AllEpisodes = ({
-    filteredEpisodes, 
-    handleRowClick, 
-    handleSort, 
+    episodes,
     handleWatchList,
-    handleSearch
+    handleRowClick,
     }:{ 
-    filteredEpisodes: CleanEpisode[],
-    handleRowClick: (id: number) => void,
-    handleSort: (sortBy: string, sortOrder: string) => void,
+    episodes: CleanEpisode[],
     handleWatchList: (id: number) => void,
-    handleSearch: (search: string) => void
+    handleRowClick: (id: number) => void,
     }) => {
+
+    const [searchInput, setSearchInput] = useState<string>('')
+    const [filteredEpisodes, setFilteredEpisodes] = useState<CleanEpisode[]>([])    
+
+    useEffect(() => {
+        setFilteredEpisodes(episodes)
+      }, [episodes])
+
+    useEffect(() => {
+        setFilteredEpisodes(episodes.filter(episode => {
+          return episode.title.toLowerCase().includes(searchInput.toLowerCase())
+        }))
+    }, [searchInput])
+
+    const sortBySeasonOrEpisode = (sortBy: string, sortOrder: string) => {
+        return filteredEpisodes.sort((a, b) => {
+          if (sortOrder === 'ascending') {
+            return parseInt(a[sortBy]) - parseInt(b[sortBy])
+          } else {
+            return parseInt(b[sortBy]) - parseInt(a[sortBy])
+          }
+        })
+    }
     
+    const sortByTitle = (sortOrder: string) => {
+    return filteredEpisodes.sort((a, b) => {
+        if (sortOrder === 'ascending') {
+        return a.title > b.title ? 1 : -1
+        } else {
+        return a.title > b.title ? -1 : 1
+        }
+    })
+    }
+
+    const sortByWatch = (sortOrder: string) => {
+    return filteredEpisodes.sort((a, b) => {
+        if (sortOrder === 'ascending') {
+        return a.watchList > b.watchList ? -1 : 1
+        } else {
+        return a.watchList >= b.watchList ? 1 : -1
+        }
+    })
+    }
+    
+    const sortByDate = (sortOrder: string) => {
+    return filteredEpisodes.sort((a, b) => {
+        let aDate = new Date(a.airDate.replace('-', '/').replace('-', '/'))
+        let bDate = new Date(b.airDate.replace('-', '/').replace('-', '/'))
+        if (sortOrder === 'ascending') {
+        return aDate > bDate ? 1 : -1
+        } else {
+        return aDate > bDate ? -1 : 1
+        }
+    })
+    }
+
+    const handleSort = (sortBy: string, sortOrder: string) => {
+    let newSort;
+    if (sortBy === 'season' || sortBy === 'episode') {
+        newSort = sortBySeasonOrEpisode(sortBy, sortOrder)
+    } else if (sortBy === 'title') {
+        newSort = sortByTitle(sortOrder)
+    } else if (sortBy === 'watchList') {
+        newSort = sortByWatch(sortOrder)
+    } else {
+        newSort = sortByDate(sortOrder)
+    }
+    setFilteredEpisodes([...newSort])
+    }
+
+    const handleSearch = (search: string) => {
+    setSearchInput(search)
+    }
+
     const tableRows = filteredEpisodes.map(episode => {
         return (
             <Row
@@ -30,6 +100,7 @@ export const AllEpisodes = ({
 
     return(
         <>
+            <h3>All Episodes</h3>
             <Form handleSort={handleSort} handleSearch={handleSearch}/>
             <div className="container-all-episodes">
                 <table className="table">
