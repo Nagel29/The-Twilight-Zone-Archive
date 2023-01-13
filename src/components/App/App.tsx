@@ -118,6 +118,7 @@ const [clicked, setClicked] = useState<string>('All Episodes')
     
   useEffect(() => {
     setFilteredEpisodes(episodes.filter(episode => {
+      
       return episode.title.toLowerCase().includes(searchInput.toLowerCase())
     }))
   },[searchInput])

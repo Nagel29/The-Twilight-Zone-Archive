@@ -24,11 +24,11 @@ export const Details = ({
 
     return(
         <>
-            {!detailEpisode && <div className="message-details">
+            {!detailEpisode ? <div className="message-details">
                 <p className="message-no-episode">Select an episode to see the details and add your own reflection!</p>
                 <img className="img-no-episode" src={noEpisode}/>
-            </div>}
-            {detailEpisode && <div className="container-details">
+            </div> : null}
+            {detailEpisode ? <div className="container-details">
                 <div className="container-watch">
                     <label htmlFor="watchList">On Watch List:</label>
                     <input  className="checkbox" id="watchList" type="checkbox" onClick={() => handleWatchList(detailEpisode?.id)} checked={detailEpisode?.watchList}/>
@@ -58,7 +58,7 @@ export const Details = ({
                         <textarea rows={15} value={detailEpisode?.reflection} onChange={(event) => handleReflectionChange(event, detailEpisode?.id)}></textarea>
                     </div>
                 </div>
-            </div>}
+            </div> : null}
         </>
     )
 }
