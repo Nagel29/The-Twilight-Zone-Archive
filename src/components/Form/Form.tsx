@@ -26,6 +26,9 @@ export const Form = ({ handleSort, handleSearch }:{ handleSort: (sortBy: string,
     }
 
     useEffect(() => {
+        if (sortBy === 'sort by') {
+            return;
+        }
         handleSort(sortBy, sortOrder)
     },[sortBy, sortOrder])
 

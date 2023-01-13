@@ -29,6 +29,10 @@ const [clicked, setClicked] = useState<string>('All Episodes')
     })
   },[])
 
+  useEffect(() => {
+    setFilteredEpisodes(episodes)
+  }, [episodes])
+
   const handleRowClick = (id: number) => {
     const singleEpisode = filteredEpisodes.find(episode => {
       return episode.id === id;
@@ -37,7 +41,7 @@ const [clicked, setClicked] = useState<string>('All Episodes')
   }
 
   const handleWatchList = (id: number | undefined) => {
-    const updatedEpisodes = filteredEpisodes.map(episode => {
+    const updatedEpisodes = episodes.map(episode => {
       if (episode.id === id) {
         return {
           ...episode,
@@ -47,11 +51,11 @@ const [clicked, setClicked] = useState<string>('All Episodes')
       return episode
     })
 
-    setFilteredEpisodes([...updatedEpisodes])
+    setEpisodes([...updatedEpisodes])
   }
 
   const handleDetailsWatch = (id: number) => {
-    setDetailEpisode(filteredEpisodes.find(episode => episode.id === id))
+    setDetailEpisode(episodes.find(episode => episode.id === id))
   }
 
   const sortBySeasonOrEpisode = (sortBy: string, sortOrder: string) => {
@@ -77,22 +81,20 @@ const [clicked, setClicked] = useState<string>('All Episodes')
   const sortByWatch = (sortOrder: string) => {
     return filteredEpisodes.sort((a, b) => {
     if (sortOrder === 'ascending') {
-      return a.watchList > b.watchList ? -1 : 1
+      return a.watchList >= b.watchList ? 1 : -1
     } else {
-      return a.watchList > b.watchList ? 1 : -1
+      return a.watchList > b.watchList ? -1 : 1
       }
     })
   }
 
   const sortByDate = (sortOrder: string) => {
     return filteredEpisodes.sort((a, b) => {
+      let aDate = new Date(a.airDate.replace('-', '/').replace('-', '/'))
+      let bDate = new Date(b.airDate.replace('-', '/').replace('-', '/'))
       if (sortOrder === 'ascending') {
-        let aDate = new Date(a.airDate.replace('-', '/').replace('-', '/'))
-        let bDate = new Date(b.airDate.replace('-', '/').replace('-', '/'))
         return aDate > bDate ? 1 : -1
       } else {
-        let aDate = new Date(a.airDate.replace('-', '/').replace('-', '/'))
-        let bDate = new Date(b.airDate.replace('-', '/').replace('-', '/'))
         return aDate > bDate ? -1 : 1
       }
     })
@@ -118,13 +120,12 @@ const [clicked, setClicked] = useState<string>('All Episodes')
     
   useEffect(() => {
     setFilteredEpisodes(episodes.filter(episode => {
-      
       return episode.title.toLowerCase().includes(searchInput.toLowerCase())
     }))
   },[searchInput])
 
   const handleReflectionChange = (event: any, id: number | undefined) => {
-    const updatedEpisodes = filteredEpisodes.map(episode => {
+    const updatedEpisodes = episodes.map(episode => {
       if (episode.id === id) {
         return {
           ...episode,
@@ -134,7 +135,7 @@ const [clicked, setClicked] = useState<string>('All Episodes')
       return episode
     })
 
-    setFilteredEpisodes([...updatedEpisodes])
+    setEpisodes([...updatedEpisodes])
   }
 
   return(
