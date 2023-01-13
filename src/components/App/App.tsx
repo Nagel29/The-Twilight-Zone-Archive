@@ -142,8 +142,8 @@ const [clicked, setClicked] = useState<string>('All Episodes')
         <h1>You’ve just crossed over into…</h1>
         <h2>The Twilight Zone Archives</h2>
         <nav className="container-button">
-          <NavLink to="/"><button className="button-nav" onClick={() => setClicked('All Episodes')}>All Episodes</button></NavLink>
-          <NavLink to="/watch-list"><button className="button-nav" onClick={() => setClicked('My Watch List')}>My Watch List</button></NavLink>
+          <NavLink to="/"><button className={clicked === "All Episodes" ? "button-nav clicked" : "button-nav"} onClick={() => setClicked('All Episodes')}>All Episodes</button></NavLink>
+          <NavLink to="/watch-list"><button className={clicked === "My Watch List" ? "button-nav clicked" : "button-nav"} onClick={() => setClicked('My Watch List')}>My Watch List</button></NavLink>
         </nav>
       </header>
       <main>
