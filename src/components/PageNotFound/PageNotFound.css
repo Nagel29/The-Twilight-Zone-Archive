@@ -1,0 +1,15 @@
+.page404 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #174550;
+    font-size: 24px;
+    width: 75%;
+    height: 100%;
+    margin-bottom: 5%;
+  }
+  
+.button-back {
+    width: auto;
+}

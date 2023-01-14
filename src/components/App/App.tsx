@@ -9,12 +9,16 @@ import { WatchList } from '../WatchList/WatchList';
 import { Details } from '../Details/Details';
 import { sampleData } from '../../sampleData';
 import { Routes, Route, NavLink, Link } from 'react-router-dom';
+import { Error } from '../Error/Error';
+import { PageNotFound } from '../PageNotFound/PageNotFound';
+
 
 const App = () => {
   const [isLoading, setIsLoading] = useState<boolean>(true)
   const [episodes, setEpisodes] = useState<CleanEpisode[]>([])
   const [detailEpisode, setDetailEpisode] = useState<CleanEpisode>()
   const [clicked, setClicked] = useState<string>('All Episodes')
+  const [error, setError] = useState<boolean>(false)
 
   useEffect(() => {
     fetchEpisodes()
@@ -23,9 +27,15 @@ const App = () => {
         setIsLoading(false)
       })
       .catch((response) => {
-        console.log(response.status)
+        console.log(response)
+        setError(true)
+        setIsLoading(false)
       })
   }, [])
+
+  const closeError = () => {
+    setError(false)
+  }
 
   const handleWatchList = (id: number | undefined) => {
     const updatedEpisodes = episodes.map(episode => {
@@ -77,8 +87,10 @@ const App = () => {
         </nav>
       </header>
       <main>
+        {error && <Error closeError={closeError} />}
         <div className="container-left">
           <Routes>
+            <Route path="*" element={<PageNotFound />}/>
             <Route path="/" element={
               <AllEpisodes
                 episodes={episodes}
@@ -94,13 +106,17 @@ const App = () => {
               />} />
           </Routes>
         </div>
-        <Details
-          detailEpisode={detailEpisode}
-          episodes={episodes}
-          handleDetailsUpdate={handleDetailsUpdate}
-          handleReflectionChange={handleReflectionChange}
-          handleWatchList={handleWatchList}
-        />
+          <Routes>
+            {["/", "/watch-list"].map(path => 
+              <Route path={path} element={<Details
+                detailEpisode={detailEpisode}
+                episodes={episodes}
+                handleDetailsUpdate={handleDetailsUpdate}
+                handleReflectionChange={handleReflectionChange}
+                handleWatchList={handleWatchList}
+              />}/>
+            )}
+          </Routes>
       </main>
     </>
   )
