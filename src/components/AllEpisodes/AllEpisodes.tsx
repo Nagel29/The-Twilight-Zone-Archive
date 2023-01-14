@@ -3,15 +3,18 @@ import { CleanEpisode } from '../../interfaces';
 import { Row } from '../Row/Row';
 import { Form } from '../Form/Form';
 import { useEffect, useState } from 'react';
+import loading from '../../images/loading.gif';
 
 export const AllEpisodes = ({
     episodes,
     handleWatchList,
     handleRowClick,
+    isLoading
     }:{ 
     episodes: CleanEpisode[],
     handleWatchList: (id: number) => void,
     handleRowClick: (id: number) => void,
+    isLoading: boolean
     }) => {
 
     const [searchInput, setSearchInput] = useState<string>('')
@@ -59,8 +62,8 @@ export const AllEpisodes = ({
     
     const sortByDate = (sortOrder: string) => {
     return filteredEpisodes.sort((a, b) => {
-        let aDate = new Date(a.airDate.replace('-', '/').replace('-', '/'))
-        let bDate = new Date(b.airDate.replace('-', '/').replace('-', '/'))
+        let aDate: Date = new Date(a.airDate.replace('-', '/').replace('-', '/'))
+        let bDate: Date = new Date(b.airDate.replace('-', '/').replace('-', '/'))
         if (sortOrder === 'ascending') {
         return aDate > bDate ? 1 : -1
         } else {
@@ -103,7 +106,13 @@ export const AllEpisodes = ({
             <h3>All Episodes</h3>
             <Form handleSort={handleSort} handleSearch={handleSearch}/>
             <div className="container-all-episodes">
-                <table className="table">
+                {isLoading && 
+                    <div className="container-loading">
+                        <p className="loading-text">Loading All Episodes...</p>
+                        <img src={loading} className="loading-image"/>
+                    </div>
+                }
+                {!isLoading && <table className="table">
                     <thead>
                         <tr>
                             <th>Season #</th>
@@ -114,7 +123,7 @@ export const AllEpisodes = ({
                         </tr>
                     </thead>
                     <tbody>{tableRows}</tbody>
-                </table>
+                </table>}
             </div>
         </>
     )
