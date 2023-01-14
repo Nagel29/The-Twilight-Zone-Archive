@@ -7,14 +7,3 @@ export const fetchEpisodes = () => {
                 return response.json()
             }})
 }
-
-
-type param = 'ryan' | 'angie'
-
-
-
-// const testFunction = (param: string | number | boolean) => {
-//     console.log(param)
-// }
-
-// testFunction(true)
