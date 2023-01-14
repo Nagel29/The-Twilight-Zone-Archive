@@ -10,8 +10,8 @@ import { Details } from '../Details/Details';
 import { sampleData } from '../../sampleData';
 import { Routes, Route, NavLink, Link } from 'react-router-dom';
 
-
 const App = () => {
+  const [isLoading, setIsLoading] = useState<boolean>(true)
   const [episodes, setEpisodes] = useState<CleanEpisode[]>([])
   const [detailEpisode, setDetailEpisode] = useState<CleanEpisode>()
   const [clicked, setClicked] = useState<string>('All Episodes')
@@ -20,6 +20,7 @@ const App = () => {
     fetchEpisodes()
       .then(data => {
         setEpisodes(cleanEpisodes(data))
+        setIsLoading(false)
       })
       .catch((response) => {
         console.log(response.status)
@@ -83,6 +84,7 @@ const App = () => {
                 episodes={episodes}
                 handleWatchList={handleWatchList}
                 handleRowClick={handleRowClick}
+                isLoading={isLoading}
               />} />
             <Route path="watch-list" element={
               <WatchList
