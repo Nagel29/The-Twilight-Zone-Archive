@@ -31,7 +31,7 @@ export const Details = ({
             {detailEpisode ? <div className="container-details">
                 <div className="container-watch">
                     <label htmlFor="watchList">On Watch List:</label>
-                    <input  className="checkbox" id="watchList" type="checkbox" onClick={() => handleWatchList(detailEpisode?.id)} checked={detailEpisode?.watchList}/>
+                    <input  className="checkbox" id="watchList" type="checkbox" onChange={() => handleWatchList(detailEpisode?.id)} checked={detailEpisode?.watchList}/>
                 </div>
                 <div className="container-img-title">
                     <img src={detailEpisode?.img} className="image"/>
