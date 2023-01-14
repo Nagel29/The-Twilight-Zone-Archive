@@ -1,5 +1,3 @@
-import { addSyntheticLeadingComment } from "typescript"
-
 describe("Details", () => {
     beforeEach(() => {
       cy.intercept(
@@ -46,5 +44,10 @@ describe("Details", () => {
         cy.get('.row').eq(0).click()
         cy.get('textarea').should('have.value', 'Wow great episode. ')
         cy.get('textarea').type('Loved it.').should('have.value', 'Wow great episode. Loved it.')
+    })
+
+    it('should display a message when no episode is selected', () => {
+      cy.visit("http://localhost:3000/")
+      cy.contains('Select an episode to see the details and add your own reflection!')
     })
   })
