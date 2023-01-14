@@ -1,5 +1,6 @@
 .container-watch-list {
     overflow-y: scroll;
+    height: 100%;
 }
 
 .container-message {

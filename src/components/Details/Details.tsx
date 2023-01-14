@@ -5,22 +5,22 @@ import noEpisode from '../../images/no-episode.gif';
 
 export const Details = ({
     detailEpisode,
-    filteredEpisodes,
-    handleDetailsWatch,
+    episodes,
+    handleDetailsUpdate,
     handleReflectionChange,
     handleWatchList
     }:{ 
     detailEpisode: CleanEpisode | undefined,
-    filteredEpisodes: CleanEpisode[],
-    handleDetailsWatch: (id: number) => void,
+    episodes: CleanEpisode[],
+    handleDetailsUpdate: (id: number) => void,
     handleReflectionChange: (event: any, id: number | undefined) => void,
     handleWatchList: (id: number | undefined) => void
     }) => {
     const cast = detailEpisode?.cast.join(', ')
 
     useEffect(() => {
-        detailEpisode && handleDetailsWatch(detailEpisode.id)
-    },[filteredEpisodes])
+        detailEpisode && handleDetailsUpdate(detailEpisode.id)
+    },[episodes])
 
     return(
         <>
