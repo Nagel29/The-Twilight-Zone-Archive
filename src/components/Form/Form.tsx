@@ -44,7 +44,7 @@ export const Form = ({ handleSort, handleSearch }:{ handleSort: (sortBy: string,
                     <option value="season">season</option>
                     <option value="title">title</option>
                 </select>
-                <button className='button' onClick={handleOrderChange}><img className="arrow" src={sortOrder === 'descending' ? downArrow : upArrow}/></button>
+                <button className='button' onClick={handleOrderChange}><img className="arrow" data-order={sortOrder} src={sortOrder === 'descending' ? downArrow : upArrow}/></button>
             </div>
         </div>
     )

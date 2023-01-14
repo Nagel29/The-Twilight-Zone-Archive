@@ -108,7 +108,7 @@ const App = () => {
         </div>
           <Routes>
             {["/", "/watch-list"].map(path => 
-              <Route path={path} element={<Details
+              <Route path={path} key={path} element={<Details
                 detailEpisode={detailEpisode}
                 episodes={episodes}
                 handleDetailsUpdate={handleDetailsUpdate}

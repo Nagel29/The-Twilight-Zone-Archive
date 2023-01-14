@@ -17,7 +17,7 @@ export const Row = ({
             <td>{rowProps.episode}</td>
             <td>{rowProps.title}</td>
             <td>{rowProps.airDate}</td>
-            <input  className="checkbox" type="checkbox" onChange={() => handleWatchList(rowProps.id)} checked={rowProps.watchList}/>
+            <td><input  className="checkbox" type="checkbox" onChange={() => handleWatchList(rowProps.id)} checked={rowProps.watchList}/></td>
         </tr>
 
     )

@@ -91,19 +91,19 @@ export const AllEpisodes = ({
     }
 
     const tableRows = filteredEpisodes.map(episode => {
-        return (
-            <Row
-                key={episode.id}
-                rowProps={episode}
-                handleRowClick={handleRowClick}
-                handleWatchList={handleWatchList}
-            />
-        )
+            return (
+                <Row
+                    key={episode.id}
+                    rowProps={episode}
+                    handleRowClick={handleRowClick}
+                    handleWatchList={handleWatchList}
+                />
+            )
     })
 
     return(
         <>
-            <h3>All Episodes</h3>
+            <h3 className="header-all-episodes">All Episodes</h3>
             <Form handleSort={handleSort} handleSearch={handleSearch}/>
             <div className="container-all-episodes">
                 {isLoading && 
@@ -112,7 +112,8 @@ export const AllEpisodes = ({
                         <img src={loading} className="loading-image"/>
                     </div>
                 }
-                {!isLoading && <table className="table">
+                {!isLoading && <div>
+                <table className="table">
                     <thead>
                         <tr>
                             <th>Season #</th>
@@ -123,7 +124,9 @@ export const AllEpisodes = ({
                         </tr>
                     </thead>
                     <tbody>{tableRows}</tbody>
-                </table>}
+                </table>
+                {!tableRows.length ? <p className="message-sad-search">No episodes were found. Please try revising your search.</p> : null}
+                </div>}
             </div>
         </>
     )
