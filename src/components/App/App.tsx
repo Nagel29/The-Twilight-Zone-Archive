@@ -10,6 +10,7 @@ import { Details } from '../Details/Details';
 import { sampleData } from '../../sampleData';
 import { Routes, Route, NavLink, Link } from 'react-router-dom';
 import { Error } from '../Error/Error';
+import { PageNotFound } from '../PageNotFound/PageNotFound';
 
 
 const App = () => {
@@ -89,6 +90,7 @@ const App = () => {
         {error && <Error closeError={closeError} />}
         <div className="container-left">
           <Routes>
+            <Route path="*" element={<PageNotFound />}/>
             <Route path="/" element={
               <AllEpisodes
                 episodes={episodes}
@@ -104,13 +106,17 @@ const App = () => {
               />} />
           </Routes>
         </div>
-        <Details
-          detailEpisode={detailEpisode}
-          episodes={episodes}
-          handleDetailsUpdate={handleDetailsUpdate}
-          handleReflectionChange={handleReflectionChange}
-          handleWatchList={handleWatchList}
-        />
+          <Routes>
+            {["/", "/watch-list"].map(path => 
+              <Route path={path} element={<Details
+                detailEpisode={detailEpisode}
+                episodes={episodes}
+                handleDetailsUpdate={handleDetailsUpdate}
+                handleReflectionChange={handleReflectionChange}
+                handleWatchList={handleWatchList}
+              />}/>
+            )}
+          </Routes>
       </main>
     </>
   )
