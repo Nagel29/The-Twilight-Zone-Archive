@@ -1,6 +1,3 @@
-import { closeSync } from "fs"
-import { addSyntheticLeadingComment } from "typescript"
-
 describe("Watch List", () => {
     beforeEach(() => {
       cy.intercept(

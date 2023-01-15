@@ -3,6 +3,7 @@ table {
     border-collapse: collapse;
     width: 100%;
     background-color: white;
+    display: table;
 }
 
 th {
@@ -25,16 +26,30 @@ h3 {
 }
 
 .container-all-episodes {
+    border-bottom-left-radius: 8%;
+    border-bottom-right-radius: 8%;
+    overflow: auto;
     width: 100%;
-    overflow-y: auto;
+    height: 100%
 }
+
+.container-all-episodes::-webkit-scrollbar {
+   width: 10px;
+}
+
+.container-all-episodes::-webkit-scrollbar-track {
+    background-color: #323131;
+}
+
+.container-all-episodes::-webkit-scrollbar-thumb {
+    background-color: #9c9c9c;}
 
 .container-loading {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-top: 5%;
+    margin-top: 8%;
 }
 
 .loading-text {
