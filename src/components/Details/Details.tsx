@@ -1,6 +1,6 @@
 import './Details.css';
 import { CleanEpisode } from '../../interfaces';
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import noEpisode from '../../images/no-episode.gif';
 
 export const Details = ({
@@ -16,7 +16,13 @@ export const Details = ({
     handleReflectionChange: (event: any, id: number | undefined) => void,
     handleWatchList: (id: number | undefined) => void
     }) => {
+
     const cast = detailEpisode?.cast.join(', ')
+    const scrollRef = useRef<HTMLDivElement>(null)
+
+    useEffect(() => {
+            scrollRef.current?.scrollTo(0, 0);;
+    }, [detailEpisode])
 
     useEffect(() => {
         detailEpisode && handleDetailsUpdate(detailEpisode.id)
@@ -28,7 +34,7 @@ export const Details = ({
                 <p className="message-no-episode">Select an episode to see the details and add your own reflection!</p>
                 <img className="img-no-episode" src={noEpisode} alt='Twilight Zone gif'/>
             </div> : null}
-            {detailEpisode ? <div className="container-details">
+            {detailEpisode ? <div className="container-details" ref={scrollRef}>
                 <div className="container-watch">
                     <label htmlFor="watchList">On Watch List:</label>
                     <input  className="checkbox" id="watchList" type="checkbox" onChange={() => handleWatchList(detailEpisode?.id)} checked={detailEpisode?.watchList}/>
@@ -36,7 +42,7 @@ export const Details = ({
                 <div className="container-img-title">
                     <img src={detailEpisode?.img} className="image" alt={`Image from episode: ${detailEpisode.title}`}/>
                     <div className="title-info">
-                        <p className="title">{detailEpisode?.title}</p>
+                        <h1 className="title">{detailEpisode?.title}</h1>
                         <div className="season-episode-date">
                             <p><strong>Season:</strong> {detailEpisode?.season}</p>
                             <p><strong>Episode:</strong> {detailEpisode?.episode}</p>

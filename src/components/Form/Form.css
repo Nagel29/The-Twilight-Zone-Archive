@@ -52,3 +52,26 @@
 .arrow { 
     width: 150%;
 }
+
+.container-search {
+    margin-left: 1%;
+}
+
+
+@media only screen and (max-width: 1400px) {
+    .dropdown {
+        height: 25px;
+    }
+
+    .search {
+        height: 25px;
+    }
+
+    .button {
+        height: 25px;
+    }
+
+    .arrow {
+        width: 25px;
+    }
+}
