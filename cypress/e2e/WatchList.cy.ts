@@ -31,7 +31,7 @@ describe("Watch List", () => {
             .and('contain', 'Episode 2')
             .and('contain', 'On Watch List:')
         cy.get('.container-card').within(() => {
-            cy.get('#watchList').should('be.checked')
+            cy.get('.checkbox').should('be.checked')
         })
         cy.get('.card-image').should('have.attr', 'src', 'https://i.postimg.cc/4NgQP6qx/one-for-the-angels.png')
     })
@@ -40,7 +40,7 @@ describe("Watch List", () => {
         cy.get('.row').eq(1).children().children('.checkbox').check()
         cy.get('.button-nav').eq(1).click()
         cy.get('.container-card').within(() => {
-            cy.get('#watchList').uncheck()
+            cy.get('.checkbox').uncheck()
         })
         cy.get('.container-card').should('not.exist')
     })
