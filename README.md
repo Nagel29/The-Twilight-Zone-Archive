@@ -8,8 +8,8 @@ I chose The Twilight Zone API because it's a show that holds a special place in 
 
 ## Learning Goals
 - Solidify React concepts
-- Build out React architecture and logic in an efficent and effective manner
-- Spend more time with TypeScript
+- Build out React architecture and logic in an efficient and effective manner
+- Spend more time utilizing TypeScript
 
 ## Built With
 
