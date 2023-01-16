@@ -1,6 +1,6 @@
 ## About The Project
 
-The Twilight Zone Archive is an application that utilizes the ![Twilight Zone API](https://thetwilightzoneapi.netlify.app/). It allows users to search and sort through all 156 episodes of the original Twilight Zone series, then click on an episode to see more details. Additionally, the user can add or remove specific episodes to and from their watch list, as well as add/edit their own commentary or reflection to the details page of each episode.
+The Twilight Zone Archive is an application that utilizes the [Twilight Zone API](https://thetwilightzoneapi.netlify.app/). It allows users to search and sort through all 156 episodes of the original Twilight Zone series, then click on an episode to see more details. Additionally, the user can add or remove specific episodes to and from their watch list, as well as add/edit their own commentary or reflection to the details page of each episode.
 
 The Twilight Zone Archive was constructed utilizing React, Router, TypeScript, and Cypress testing. I created this application as part of Turing School of Software & Design' curriculum. While the project was required to have certain functionality, I was able to decide which API I wanted to use and what the application would do. It took me approximately 45 hours total to finish.
 
