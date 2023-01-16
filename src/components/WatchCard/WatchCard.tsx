@@ -4,23 +4,25 @@ import './WatchCard.css';
 export const WatchCard = ({
     cardProps,
     handleWatchList,
-    handleRowClick
+    handleRowClick,
+    handleKeyPress
     }:{
     cardProps: CleanEpisode,
     handleWatchList: (id: number) => void,
-    handleRowClick: (id: number) => void
+    handleRowClick: (id: number) => void,
+    handleKeyPress: (event: any, id: number) => void
     }) => {
 
     return(
-    <div className="container-card" onClick={() => handleRowClick(cardProps.id)}>
-        <img className="card-image" src={cardProps.img}/>
+    <div className="container-card" tabIndex={0} onKeyDown={(event) => handleKeyPress(event, cardProps.id)} onClick={() => handleRowClick(cardProps.id)}>
+        <img className="card-image" src={cardProps.img} alt={`Image from episode: ${cardProps.title}`}/>
         <div className="card-info-title">
             <p className="card-title">{cardProps.title}</p>
             <div className="card-info">
                 <p>Season {cardProps.season}</p>
                 <p>Episode {cardProps.episode}</p>
-                <label htmlFor="watchList">On Watch List:</label>
-                <input className="checkbox" id="watchList" type="checkbox" onChange={() => handleWatchList(cardProps.id)} checked={cardProps.watchList}/>
+                <label htmlFor={`${cardProps.title}-watchList`}>On Watch List:</label>
+                <input className="checkbox" id={`${cardProps.title}-watchList`} name={`${cardProps.title}-watchList`} type="checkbox" onChange={() => handleWatchList(cardProps.id)} checked={cardProps.watchList}/>
             </div>
         </div>
     </div>)

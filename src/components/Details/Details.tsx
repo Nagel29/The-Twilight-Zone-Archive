@@ -26,7 +26,7 @@ export const Details = ({
         <div className="container-right">
             {!detailEpisode ? <div className="message-details">
                 <p className="message-no-episode">Select an episode to see the details and add your own reflection!</p>
-                <img className="img-no-episode" src={noEpisode}/>
+                <img className="img-no-episode" src={noEpisode} alt='Twilight Zone gif'/>
             </div> : null}
             {detailEpisode ? <div className="container-details">
                 <div className="container-watch">
@@ -34,7 +34,7 @@ export const Details = ({
                     <input  className="checkbox" id="watchList" type="checkbox" onChange={() => handleWatchList(detailEpisode?.id)} checked={detailEpisode?.watchList}/>
                 </div>
                 <div className="container-img-title">
-                    <img src={detailEpisode?.img} className="image"/>
+                    <img src={detailEpisode?.img} className="image" alt={`Image from episode: ${detailEpisode.title}`}/>
                     <div className="title-info">
                         <p className="title">{detailEpisode?.title}</p>
                         <div className="season-episode-date">
