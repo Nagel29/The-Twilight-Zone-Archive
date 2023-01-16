@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import logo from '../../logo.svg';
 import './App.css';
 import { fetchEpisodes } from '../../apiCalls';
 import { cleanEpisodes } from '../../utilities/utilities';
@@ -7,8 +6,7 @@ import { CleanEpisode } from '../../interfaces';
 import { AllEpisodes } from '../AllEpisodes/AllEpisodes';
 import { WatchList } from '../WatchList/WatchList';
 import { Details } from '../Details/Details';
-import { sampleData } from '../../sampleData';
-import { Routes, Route, NavLink, Link } from 'react-router-dom';
+import { Routes, Route, NavLink } from 'react-router-dom';
 import { Error } from '../Error/Error';
 import { PageNotFound } from '../PageNotFound/PageNotFound';
 

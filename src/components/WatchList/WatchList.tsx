@@ -33,7 +33,7 @@ export const WatchList = ({
                 <h3>My Watch List</h3>
                 {!watchCards.length ? <div className="container-message">
                     <p className="message-no-watch">Add episodes to your watch list to view them here!</p>
-                    <img className="img-no-watch" src={noWatch} alt='Twilight Zone gif'/>
+                    <img className="img-no-watch" src={noWatch} alt='Twilight Zone gif' />
                 </div> : null}
                 {watchCards}
             </div>
