@@ -8,6 +8,7 @@
     font-weight: 600;
     color: #fdfdfe;
     border-radius: 50px;
+    overflow: auto;
 }
 
 .message-no-episode {
@@ -15,7 +16,7 @@
     font-size: 24px;
     font-weight: 500;
     margin-top: 15%;
-    width: 100%;
+    width: 75%;
 }
 
 .img-no-episode {
@@ -41,15 +42,18 @@
     text-align: left;
 }
 
-.container-details::-webkit-scrollbar {
+.container-details::-webkit-scrollbar,
+ .message-details::-webkit-scrollbar{
     width: 10px;
 }
  
- .container-details::-webkit-scrollbar-track {
+ .container-details::-webkit-scrollbar-track,
+  .message-details::-webkit-scrollbar-track {
      background-color: #454545;
 }
  
- .container-details::-webkit-scrollbar-thumb {
+ .container-details::-webkit-scrollbar-thumb,
+ .message-details::-webkit-scrollbar-thumb {
     background-color: #a76eca;
 }
  
@@ -148,4 +152,40 @@ textarea {
 
 .container-reflection {
     margin-top: 3%;
+}
+
+
+@media only screen and (max-width: 1400px) {
+    .container-details {
+        font-size: 12px;
+    }
+
+    .title {
+        font-size: 20px;
+    }
+
+    .message-no-episode {
+        font-size: 18px;
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    .container-details {
+        font-size: 10px;
+    }
+
+    .title {
+        font-size: 16px;
+    }
+
+    .image {
+        width: 20%;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    .container-right {
+        width: 95%;
+        margin-top: 5%;
+    }
 }

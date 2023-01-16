@@ -42,7 +42,7 @@ export const Details = ({
                 <div className="container-img-title">
                     <img src={detailEpisode?.img} className="image" alt={`Image from episode: ${detailEpisode.title}`}/>
                     <div className="title-info">
-                        <p className="title">{detailEpisode?.title}</p>
+                        <h1 className="title">{detailEpisode?.title}</h1>
                         <div className="season-episode-date">
                             <p><strong>Season:</strong> {detailEpisode?.season}</p>
                             <p><strong>Episode:</strong> {detailEpisode?.episode}</p>

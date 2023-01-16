@@ -34,7 +34,10 @@ export const Form = ({ handleSort, handleSearch }:{ handleSort: (sortBy: string,
 
     return(
         <div className="container-form">
-            <input type="search" placeholder="search by title" value={search} className="search" onChange={handleSearchChange}/>
+            <div className='container-search'>
+                <label htmlFor='search-by-title' className='label'></label>
+                <input type="search" id='search-by-title' name='search' placeholder="search by title" value={search} className="search" onChange={handleSearchChange}/>
+            </div>
             <div className="sort-container">
                 <select className="dropdown" placeholder="sort by..." value={sortBy} onChange={handleSortChange}>
                     <option value="sort by" disabled hidden>sort by...</option>
