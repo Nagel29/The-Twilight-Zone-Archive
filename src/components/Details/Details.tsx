@@ -19,10 +19,21 @@ export const Details = ({
 
     const cast = detailEpisode?.cast.join(', ')
     const scrollRef = useRef<HTMLDivElement>(null)
+    const usePrevious = (detailEpisode: any) => {
+        const prevRef = useRef<HTMLDivElement>();
+        useEffect(() => {
+          prevRef.current = detailEpisode;
+        },[detailEpisode]);
+        console.log(prevRef.current)
+        return prevRef.current;
+    }
+    const prevEpisode: HTMLDivElement | undefined = usePrevious(detailEpisode)
 
     useEffect(() => {
-            scrollRef.current?.scrollTo(0, 0);;
-    }, [detailEpisode])
+        if (prevEpisode?.id !== detailEpisode?.id) {
+            scrollRef.current?.scrollTo(0, 0);
+        }
+    },[detailEpisode])
 
     useEffect(() => {
         detailEpisode && handleDetailsUpdate(detailEpisode.id)
