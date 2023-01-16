@@ -1,4 +1,4 @@
-describe("Top 100", () => {
+describe("All Episodes", () => {
   beforeEach(() => {
     cy.intercept(
       'https://the-twilight-zone-api.vercel.app/episodes',

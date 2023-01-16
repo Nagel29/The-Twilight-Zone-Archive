@@ -8,7 +8,7 @@ table {
 th {
     font-size: 14px;
     text-decoration: underline;
-    background-color: white;
+    background-color: rgb(188, 188, 188);
 }
 
 thead {
@@ -24,9 +24,27 @@ h3 {
     margin-top: 4%;
 }
 
+.container-table {
+    height: 100%;
+    background-color: white;
+}
+
 .container-all-episodes {
+    overflow: auto;
     width: 100%;
-    overflow-y: auto;
+    height: 100%
+}
+
+.container-all-episodes::-webkit-scrollbar {
+   width: 10px;
+}
+
+.container-all-episodes::-webkit-scrollbar-track {
+    background-color: #454545;
+}
+
+.container-all-episodes::-webkit-scrollbar-thumb {
+    background-color: #a76eca;
 }
 
 .container-loading {
@@ -34,21 +52,26 @@ h3 {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-top: 5%;
+    margin-top: 8%;
 }
 
 .loading-text {
     font-size: 24px;
     font-weight: 500;
+    color: white;
 }
 
 .loading-image {
     border-radius: 8%;
     width: 60%;
+    box-shadow: 0 0 30px rgb(237,237,237);
 }
 
 .message-sad-search {
-    margin-top: 15%;
+    margin: 0px;
+    padding-top: 10%;
     font-size: 18px;
+    background-color: white;
+    width: 100%;
 }
 

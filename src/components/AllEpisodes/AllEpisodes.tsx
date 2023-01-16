@@ -41,35 +41,35 @@ export const AllEpisodes = ({
     }
     
     const sortByTitle = (sortOrder: string) => {
-    return filteredEpisodes.sort((a, b) => {
-        if (sortOrder === 'ascending') {
-        return a.title > b.title ? 1 : -1
-        } else {
-        return a.title > b.title ? -1 : 1
-        }
-    })
+        return filteredEpisodes.sort((a, b) => {
+            if (sortOrder === 'ascending') {
+            return a.title > b.title ? 1 : -1
+            } else {
+            return a.title > b.title ? -1 : 1
+            }
+        })
     }
 
     const sortByWatch = (sortOrder: string) => {
-    return filteredEpisodes.sort((a, b) => {
-        if (sortOrder === 'ascending') {
-        return a.watchList > b.watchList ? -1 : 1
-        } else {
-        return a.watchList >= b.watchList ? 1 : -1
-        }
-    })
+        return filteredEpisodes.sort((a, b) => {
+            if (sortOrder === 'ascending') {
+            return a.watchList > b.watchList ? -1 : 1
+            } else {
+            return a.watchList >= b.watchList ? 1 : -1
+            }
+        })
     }
     
     const sortByDate = (sortOrder: string) => {
-    return filteredEpisodes.sort((a, b) => {
-        let aDate: Date = new Date(a.airDate.replace('-', '/').replace('-', '/'))
-        let bDate: Date = new Date(b.airDate.replace('-', '/').replace('-', '/'))
-        if (sortOrder === 'ascending') {
-        return aDate > bDate ? 1 : -1
-        } else {
-        return aDate > bDate ? -1 : 1
-        }
-    })
+        return filteredEpisodes.sort((a, b) => {
+            let aDate: Date = new Date(a.airDate.replace('-', '/').replace('-', '/'))
+            let bDate: Date = new Date(b.airDate.replace('-', '/').replace('-', '/'))
+            if (sortOrder === 'ascending') {
+            return aDate > bDate ? 1 : -1
+            } else {
+            return aDate > bDate ? -1 : 1
+            }
+        })
     }
 
     const handleSort = (sortBy: string, sortOrder: string) => {
@@ -112,7 +112,7 @@ export const AllEpisodes = ({
                         <img src={loading} className="loading-image"/>
                     </div>
                 }
-                {!isLoading && <div>
+                {!isLoading && <div className="container-table">
                 <table className="table">
                     <thead>
                         <tr>

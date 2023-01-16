@@ -1,19 +1,18 @@
 .container-form {
     height: 6%;
     width: 100%;
-    border-bottom: .5px solid black;
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-
-.container-all-episodes {
-    height: 92%;
+    margin-bottom: 1%;
+    /* position: sticky; */
 }
 
 .search {
     height: 35px;
-    margin-left: 3px;
+    margin-left: 1%;
+    border: none;
+    border-radius: 15px;
 }
 
 .sort-container {
@@ -21,12 +20,14 @@
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    margin: 3px;
+    margin: 1%;
+    border: none;
 }
 
 .dropdown {
     height: 35px; 
     width: 150px;
+    border-radius: 15px;
 }
 
 .dropdown:hover {
@@ -39,6 +40,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    border-radius: 15px;
+    border: none; 
+    margin-left: 1.5%;
 }
 
 .button:hover {

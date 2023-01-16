@@ -1,18 +1,18 @@
 .container-card {
     display: flex;
     margin: 3%;
-    border: double 5px transparent;
+    border: double 4px transparent;
     border-radius: 20px;
     background-image: linear-gradient(rgb(230, 241, 233), white), 
-                      linear-gradient(to right, #ee7752, #e73c7e, #812b4c, #23a6d5, #23d5ab);
+                      linear-gradient(to right,  #6060e8, #7532da, #bc06dc);
     background-origin: border-box;
     background-clip: content-box, border-box;
 }
 
 .container-card:hover {
     cursor: pointer;
-    background-image: linear-gradient(#faffeb, #faffeb), 
-                      linear-gradient(to right, #ee7752, #e73c7e, #812b4c, #23a6d5, #23d5ab);
+    background-image: linear-gradient(#c8c8c8, #c7c7c7), 
+                      linear-gradient(to right,  #6060e8, #7532da, #bc06dc);
 }
 
 .card-image {
