@@ -9,11 +9,13 @@ export const AllEpisodes = ({
     episodes,
     handleWatchList,
     handleRowClick,
+    handleKeyPress,
     isLoading
     }:{ 
     episodes: CleanEpisode[],
     handleWatchList: (id: number) => void,
     handleRowClick: (id: number) => void,
+    handleKeyPress: (event: any, id: number) => void,
     isLoading: boolean
     }) => {
 
@@ -96,6 +98,7 @@ export const AllEpisodes = ({
                     key={episode.id}
                     rowProps={episode}
                     handleRowClick={handleRowClick}
+                    handleKeyPress={handleKeyPress}
                     handleWatchList={handleWatchList}
                 />
             )
@@ -109,7 +112,7 @@ export const AllEpisodes = ({
                 {isLoading && 
                     <div className="container-loading">
                         <p className="loading-text">Loading All Episodes...</p>
-                        <img src={loading} className="loading-image"/>
+                        <img src={loading} className="loading-image" alt='Spiral loading image'/>
                     </div>
                 }
                 {!isLoading && <div className="container-table">

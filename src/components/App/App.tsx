@@ -58,6 +58,15 @@ const App = () => {
     setDetailEpisode(singleEpisode)
   }
 
+  const handleKeyPress = (event: any, id: number) => {
+    if (event.keyCode === 13) {
+      const singleEpisode = episodes.find(episode => {
+        return episode.id === id;
+      })
+      setDetailEpisode(singleEpisode)
+    }
+  }
+
   const handleDetailsUpdate = (id: number) => {
     setDetailEpisode(episodes.find(episode => episode.id === id))
   }
@@ -82,8 +91,8 @@ const App = () => {
         <h1>You’ve just crossed over into…</h1>
         <h2>The Twilight Zone Archives</h2>
         <nav className="container-button">
-          <NavLink to="/"><button className={clicked === "All Episodes" ? "button-nav clicked" : "button-nav"} onClick={() => setClicked('All Episodes')}>All Episodes</button></NavLink>
-          <NavLink to="/watch-list"><button className={clicked === "My Watch List" ? "button-nav clicked" : "button-nav"} onClick={() => setClicked('My Watch List')}>My Watch List</button></NavLink>
+          <NavLink to="/" tabIndex={-1}><button className={clicked === "All Episodes" ? "button-nav clicked" : "button-nav"} onClick={() => setClicked('All Episodes')}>All Episodes</button></NavLink>
+          <NavLink to="/watch-list" tabIndex={-1}><button className={clicked === "My Watch List" ? "button-nav clicked" : "button-nav"} onClick={() => setClicked('My Watch List')}>My Watch List</button></NavLink>
         </nav>
       </header>
       <main>
@@ -96,6 +105,7 @@ const App = () => {
                 episodes={episodes}
                 handleWatchList={handleWatchList}
                 handleRowClick={handleRowClick}
+                handleKeyPress={handleKeyPress}
                 isLoading={isLoading}
               />} />
             <Route path="watch-list" element={
@@ -103,6 +113,7 @@ const App = () => {
                 episodes={episodes}
                 handleWatchList={handleWatchList}
                 handleRowClick={handleRowClick}
+                handleKeyPress={handleKeyPress}
               />} />
           </Routes>
         </div>
