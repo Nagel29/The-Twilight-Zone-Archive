@@ -34,7 +34,7 @@ I chose The Twilight Zone API because it's a show that holds a special place in 
 
 ## Deployed Link
 
-[The Twilight Zone Archives](the-twilight-zone-archive.vercel.app)
+[The Twilight Zone Archives](https://the-twilight-zone-archive.vercel.app/)
 
 ## Preview
 
