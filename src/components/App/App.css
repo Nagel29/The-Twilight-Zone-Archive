@@ -6,9 +6,6 @@ main {
   display: flex;
   justify-content: space-evenly;
   padding-top: 2vh;
-  /* background: linear-gradient(45deg, #ee7752, #e73c7e, #812b4c, #23a6d5, #23d5ab); */
-  /* background-size: 400% 400%; */
-  /* animation: gradient 5s ease infinite; */
   height: 85.6vh;
   padding-top: 1.5%;
   background-color: #f2ebfc;
@@ -16,7 +13,7 @@ main {
 }
 
 header {
-  border-bottom:#5d5c5c solid 1px;
+  border-bottom: #5d5c5c solid 1px;
   display: flex;
   flex-direction: column;
   height: fit-content;
@@ -24,8 +21,6 @@ header {
   background-image: linear-gradient(to right, #c0c0c0, #877d8f, #716879);
   font-weight: 600;
   color: #fdfdfe;
-  /* background-clip: text;
-  -webkit-background-clip: text;  */
 }
 
 h1 {
@@ -37,19 +32,19 @@ h2 {
   font-size: 32px;
   margin: 0px;
   text-shadow: 0px 0px 5px #b393d3, 0px 0px 10px #b393d3, 0px 0px 10px #b393d3,
-  0px 0px 20px #b393d3;
+    0px 0px 20px #b393d3;
 }
 
 h3 {
   font-size: 26px;
   margin: 0px;
-  color:rgb(239, 239, 239);
+  color: rgb(239, 239, 239);
   text-shadow: 0px 0px 5px #b393d3, 0px 0px 10px #b393d3, 0px 0px 10px #3c3642,
-  0px 0px 20px #3c3642;
+    0px 0px 20px #3c3642;
 }
 
 .container-left {
-  background-color:rgb(105, 105, 105);
+  background-color: rgb(105, 105, 105);
   box-shadow: 0px 10px 10px rgb(69, 69, 69);
   width: 47.5%;
   display: flex;
@@ -58,6 +53,7 @@ h3 {
   height: 95%;
   border-radius: 50px;
   overflow: hidden;
+  position: relative;
 }
 
 .container-button {
@@ -98,32 +94,49 @@ h3 {
   0% {
     background-position: 0% 50%;
   }
-  
+
   50% {
     background-position: 100% 50%;
   }
-  
+
   100% {
     background-position: 0% 50%;
   }
 }
 
 @media only screen and (max-width: 1440px) {
-    header { height: 12.5vh }
-    h1 { font-size: 16px; }
-    h2 { font-size: 22px; }
+  header {
+    height: 12.5vh
+  }
+
+  h1 {
+    font-size: 16px;
+  }
+
+  h2 {
+    font-size: 22px;
+  }
 }
 
 @media only screen and (max-width: 800px) {
-  header { height: 12.5vh }
-  h1 { font-size: 14px; }
-  h2 { font-size: 18px; }
+  header {
+    height: 12.5vh
+  }
+
+  h1 {
+    font-size: 14px;
+  }
+
+  h2 {
+    font-size: 18px;
+  }
+
   .button-nav {
     font-size: 12px;
   }
 }
 
-@media only screen and (max-width: 700px) { 
+@media only screen and (max-width: 700px) {
   main {
     flex-direction: column;
     align-items: center;
@@ -131,7 +144,7 @@ h3 {
 
   .container-left {
     width: 95%;
-    
+
   }
 }
 
@@ -140,4 +153,3 @@ h3 {
     margin: 5px 0px 8px 0px;
   }
 }
-

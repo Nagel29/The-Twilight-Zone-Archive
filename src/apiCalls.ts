@@ -5,5 +5,6 @@ export const fetchEpisodes = () => {
                 throw response
             } else {
                 return response.json()
-            }})
+            }
+        })
 }
