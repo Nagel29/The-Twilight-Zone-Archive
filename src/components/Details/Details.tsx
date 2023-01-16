@@ -23,7 +23,7 @@ export const Details = ({
     },[episodes])
 
     return(
-        <>
+        <div className="container-right">
             {!detailEpisode ? <div className="message-details">
                 <p className="message-no-episode">Select an episode to see the details and add your own reflection!</p>
                 <img className="img-no-episode" src={noEpisode}/>
@@ -59,6 +59,6 @@ export const Details = ({
                     </div>
                 </div>
             </div> : null}
-        </>
+        </div>
     )
 }

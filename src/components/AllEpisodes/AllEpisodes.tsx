@@ -112,7 +112,7 @@ export const AllEpisodes = ({
                         <img src={loading} className="loading-image"/>
                     </div>
                 }
-                {!isLoading && <div>
+                {!isLoading && <div className="container-table">
                 <table className="table">
                     <thead>
                         <tr>
