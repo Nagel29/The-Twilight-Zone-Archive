@@ -22,15 +22,16 @@ I chose The Twilight Zone API because it's a show that holds a special place in 
 
 ## Installation
 
-1. Clone the repo
-  ```sh
-  git clone git@github.com:Nagel29/the-twilight-zone-archive.git
-  ```
-2. Install NPM packages
-   ```sh
-   npm install
-   npm start
-   ```
+1. Fork and clone the repo to your local machine.
+2. CD into repo and open in your code editor.
+3. Install packages.
+    ```zsh
+    npm i
+    ```
+4. Start the application.
+    ```zsh
+    npm start
+    ```
 
 ## Deployed Link
 
